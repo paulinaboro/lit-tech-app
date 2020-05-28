@@ -5,6 +5,7 @@ import { PostData } from "../../services/PostData";
 import UserFeed from "../UserFeed/UserFeed";
 import { confirmAlert } from "react-confirm-alert";
 import "../../styles/react-confirm-alert.css";
+// import AllCourses from "./components/AllCourses/AllCourses";
 
 class Home extends Component {
   constructor(props) {
@@ -121,32 +122,40 @@ class Home extends Component {
     }
 
     return (
-      <div className="row" id="Body">
-        <div className="medium-12 columns">
-          <a href="#" onClick={this.logout} className="logout">
-            Logout
-          </a>
-          <form onSubmit={this.feedUpdate} method="post">
-            <input
-              name="userFeed"
-              onChange={this.onChange}
-              value={this.state.userFeed}
-              type="text"
-              placeholder="Write your feed here..."
+      <div className="container">
+        <div className="row">
+          {/* <div class="col">col-3</div> */}
+
+          <div className="col-3">
+            <a href="#" onClick={this.logout} className="logout">
+              Logout
+            </a>
+            <a href="/allcourses">All Courses</a>
+          </div>
+          <div className="col-9">
+            <form onSubmit={this.feedUpdate} method="post">
+              <input
+                name="userFeed"
+                onChange={this.onChange}
+                value={this.state.userFeed}
+                type="text"
+                placeholder="Write your feed here..."
+              />
+              <input
+                type="submit"
+                value="Post"
+                className="button"
+                onClick={this.feedUpdate}
+              />
+            </form>
+            <UserFeed
+              feedData={this.state.data}
+              deleteFeed={this.deleteFeed}
+              name={this.state.name}
             />
-            <input
-              type="submit"
-              value="Post"
-              className="button"
-              onClick={this.feedUpdate}
-            />
-          </form>
+          </div>
+          {/* <div class="col">col-3</div> */}
         </div>
-        <UserFeed
-          feedData={this.state.data}
-          deleteFeed={this.deleteFeed}
-          name={this.state.name}
-        />
       </div>
     );
   }

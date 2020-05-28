@@ -5,6 +5,7 @@ time {
 }
 input[type="text"] {
   height: 50px;
+  width: 40vw;
 }
 b {
   display: block;

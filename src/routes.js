@@ -5,6 +5,7 @@ import Home from "././components/Home/Home";
 import Login from "././components/Login/Login";
 import Signup from "././components/Signup/Signup";
 import NotFound from "././components/NotFound/NotFound";
+import AllCourses from "./components/AllCourses/AllCourses";
 
 const Routes = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route path="/login" component={Login} />
       <Route path="/Signup" component={Signup} />
       <Route path="/main" component={Welcome} />
+      <Route path="/allcourses" component={AllCourses} />
       <Route path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>

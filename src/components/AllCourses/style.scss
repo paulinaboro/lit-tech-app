@@ -1,0 +1,9 @@
+$bgcolor: green;
+$textcolor: green;
+$fontsize: 18px;
+
+/* Use the variables */
+.container {
+  color: $textcolor;
+  font-size: $fontsize;
+}

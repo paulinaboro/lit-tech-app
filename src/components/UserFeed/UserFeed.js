@@ -10,7 +10,7 @@ class UserFeed extends Component {
   render() {
     let userFeed = this.props.feedData.map(function (feedData, index) {
       return (
-        <div className="medium-12 columns" key={index}>
+        <div className="col-9" key={index}>
           <div className="people-you-might-know">
             <div className="row add-people-section">
               <div className="small-12 medium-10 columns about-people">
@@ -23,7 +23,7 @@ class UserFeed extends Component {
                 </div>
               </div>
               <div className="small-12 medium-2 columns add-friend">
-                <div className="add-friend-action">
+                <div className="col-3">
                   <button
                     id="del"
                     className="button small btn-color"
