@@ -16,6 +16,7 @@ class Home extends Component {
       userFeed: "",
       redirectToReferrer: false,
       name: "",
+      usercourses: [],
     };
 
     this.getUserFeed = this.getUserFeed.bind(this);

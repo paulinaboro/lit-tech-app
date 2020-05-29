@@ -2,11 +2,25 @@ import React, { Component } from "react";
 import "./style.scss";
 import CoursesFetching from "../SingleCourse/CoursesFetching";
 // const urlData = require("../SingleCourse/courses.json");
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class AllCourses extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      userFeed: "",
+      redirectToReferrer: false,
+      name: "",
+      usercourses: [],
+      courses: [],
+    };
+  }
+
   render() {
     return (
+      // console.log(this.state.name);
       <div className="container">
         <div className="row">
           <div className="col-3">

@@ -1,12 +1,57 @@
 import React, { Component } from "react";
 import "./style.scss";
 import Img from "./img/database2.png";
+import { PostData } from "../../services/PostData";
+// import { PostDataCourse } from "../../services/PostDataCourse";
 
 class SingleCourse extends Component {
-  componentDidMount() {}
+  // componentDidMount() {}
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      userFeed: "",
+      redirectToReferrer: false,
+      name: "",
+      usercourses: [],
+      courses: [],
+    };
+    this.addCourseToCart = this.addCourseToCart.bind(this);
+  }
+
+  addCourseToCart(e) {
+    e.preventDefault();
+    let chosenCourseID = e.currentTarget.value;
+    //   // console.log(chosenCourseID);
+    let data = JSON.parse(sessionStorage.getItem("userData"));
+    let postData = {
+      user_id: data.userData.user_id,
+      course_id: chosenCourseID,
+    };
+
+    if (chosenCourseID) {
+      PostData("addCourseToCart", postData);
+    }
+
+    // PostDataCourse(postData);
+    // .then((res) => {
+    //   const usercourses = res.data;
+    //   this.setState({ usercourses });
+    // });
+
+    // .then((result) => {
+    //     let responseJson = result;
+    //     this.setState({usercourses: })
+    //     // this.setState({ usercourses: responseJson.course_id });
+    //   });
+    // }
+  }
 
   render() {
     const { courses } = this.props;
+
     return (
       <div className="container">
         <div className=" row">
@@ -19,7 +64,9 @@ class SingleCourse extends Component {
                 {/* <img src={course.img_path}></img> */}
                 <h1>{course.course_name}</h1>
                 <p>{course.short_description}</p>
-                <button>Add to cart</button>
+                <button value={course.course_id} onClick={this.addCourseToCart}>
+                  Add to cart
+                </button>
               </div>
             </div>
           ))}

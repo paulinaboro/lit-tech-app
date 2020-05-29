@@ -3,9 +3,22 @@ import axios from "axios";
 import SingleCourse from "./SingleCourse";
 
 export default class CoursesFetching extends Component {
-  state = {
-    courses: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      userFeed: "",
+      redirectToReferrer: false,
+      name: "",
+      usercourses: [],
+      courses: [],
+    };
+  }
+
+  // state = {
+  //   courses: [],
+  // };
 
   componentDidMount() {
     axios
@@ -22,7 +35,14 @@ export default class CoursesFetching extends Component {
     console.log("state courses", this.state.courses);
     let coursesList = null;
     if (this.state.courses) {
-      return <SingleCourse courses={this.state.courses} />;
+      return (
+        <SingleCourse
+          courses={this.state.courses}
+          addCourse={this.state.courses}
+          deleteCourse={this.deleteCourse}
+          name={this.state.courses}
+        />
+      );
     }
     return (
       <div>
