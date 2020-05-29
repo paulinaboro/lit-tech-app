@@ -34,19 +34,6 @@ class SingleCourse extends Component {
     if (chosenCourseID) {
       PostData("addCourseToCart", postData);
     }
-
-    // PostDataCourse(postData);
-    // .then((res) => {
-    //   const usercourses = res.data;
-    //   this.setState({ usercourses });
-    // });
-
-    // .then((result) => {
-    //     let responseJson = result;
-    //     this.setState({usercourses: })
-    //     // this.setState({ usercourses: responseJson.course_id });
-    //   });
-    // }
   }
 
   render() {
@@ -64,9 +51,16 @@ class SingleCourse extends Component {
                 {/* <img src={course.img_path}></img> */}
                 <h1>{course.course_name}</h1>
                 <p>{course.short_description}</p>
-                <button value={course.course_id} onClick={this.addCourseToCart}>
-                  Add to cart
-                </button>
+
+                <form onSubmit={this.addCourseToCart} method="post">
+                  <button
+                    type="submit"
+                    value={course.course_id}
+                    onClick={this.addCourseToCart}
+                  >
+                    Add to cart
+                  </button>
+                </form>
               </div>
             </div>
           ))}

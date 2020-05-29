@@ -11,44 +11,29 @@ elseif($type=='addCourseToCart') addCourseToCart();
 
 function addCourseToCart(){
   
-    require 'config.php';     
-    # Get JSON as a string
-$json_str = file_get_contents('php://input');
+require 'config.php';     
+ $json = json_decode(file_get_contents('php://input'), true);
 
-# Get as an object
-$json_obj = json_decode($json_str);
+    $user_id=$json['user_id'];
+    $course_id=$json['course_id'];
 
-echo $json_obj;
+    $courseData = '';
+    if($user_id !=0)
+    {
+        // $query = "INSERT INTO usercourses ($user_id, $course_id)";
+        $query = 'INSERT INTO usercourses(user_id, course_id) VALUES ($user_id, $course_id)';
 
-//  $json = json_decode(file_get_contents('php://input'), true);
+        // $db->query("INSERT INTO users(username,password,email,name)
+        // VALUES('$username','$password','$email','$name')");
 
+        $db->query($query);              
+    }
+    $result = $db->query($query); 
 
-    // $user_id=$json['user_id'];
-    // $course_id=$json['course_id'];
-
-    // $courseData = '';
-    // if($user_id !=0)
-    // {
-    //     // $query = "INSERT INTO usercourses ($user_id, $course_id)";
-    //     $query = 'INSERT INTO usercourses(user_id, course_id) VALUES ($user_id, $course_id)';
-
-    //     // $db->query("INSERT INTO users(username,password,email,name)
-    //     // VALUES('$username','$password','$email','$name')");
-
-    //     $db->query($query);              
-    // }
-    // $result = $db->query($query); 
-
-    // $courseData = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    // $courseData=json_encode($courseData);
+    $courseData = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    $courseData=json_encode($courseData);
     
-    // echo $courseData;
-
-    // checking
-    // $check = json_encode($json);
-    // echo $check;
-
-    
+    echo $courseData;
 }
 function login() 
 { 
