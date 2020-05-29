@@ -11,8 +11,8 @@ class SingleCourse extends Component {
       <div className="container">
         <div className=" row">
           {courses.map((course) => (
-            <div className="col-6">
-              <div key={course.course_id}>
+            <div className="col-6" key={course.course_id}>
+              <div>
                 <button>{course.course_genre}</button>
                 <p>{course.img_path}</p>
                 <img className="singleImg" src={Img}></img>

@@ -14,7 +14,9 @@ class AllCourses extends Component {
               <li>
                 <a href="/home">Forum</a>
               </li>
-              <li>All Courses</li>
+              <li>
+                <a href="/allcourses">All Courses</a>
+              </li>
               <li>Databases</li>
               <li>Design</li>
               <li>Game Development</li>

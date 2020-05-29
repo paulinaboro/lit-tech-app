@@ -4,6 +4,7 @@ import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 
 class Header extends Component {
   render() {
+    // if (window.location.pathname === "/home" || "/allcourses") return null;
     return (
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand href="/main">
